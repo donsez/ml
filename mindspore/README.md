@@ -58,9 +58,10 @@ docker images | grep  mindspore
 
 Now, you can also test the brand-new image with:
 ```bash
-docker run -t --rm -v `pwd`:/work mindspore/mindspore-cpu-aarch64:1.8.1 python /work/mul.py
-docker run -t --rm -v `pwd`:/work mindspore/mindspore-cpu-aarch64:1.8.1 python /work/tensor.py
-docker run -t --rm -v `pwd`:/work mindspore/mindspore-cpu-aarch64:1.8.1 python /work/add.py
+docker run -t --rm -v `pwd`:/work mindspore/mindspore-cpu-aarch64:latest pip show mindspore mindinsight
+docker run -t --rm -v `pwd`:/work --workdir=/work mindspore/mindspore-cpu-aarch64:latest python mul.py
+docker run -t --rm -v `pwd`:/work --workdir=/work mindspore/mindspore-cpu-aarch64:latest python tensor.py
+docker run -t --rm -v `pwd`:/work --workdir=/work mindspore/mindspore-cpu-aarch64:latest python add.py
 ```
 
 
