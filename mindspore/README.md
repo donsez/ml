@@ -69,3 +69,36 @@ docker run -t --rm -v `pwd`:/work --workdir=/work mindspore/mindspore-cpu-aarch6
 
 https://www.mindspore.cn/install/en
 
+## Perf test (Tentative)
+
+```bash
+mkdir ~/github/mindspore-ai
+cd ~/github/mindspore-ai
+git clone git@github.com:mindspore-ai/mindspore.git
+cd mindspore
+
+docker run -t --rm -v `pwd`:/mindspore --workdir=/mindspore/scripts \
+    mindspore/mindspore-cpu-aarch64:latest ./run_perf_test.sh
+docker run -it --rm \
+    --hostname=mindspore \
+    -v `pwd`:/mindspore --workdir=/mindspore/scripts \
+    mindspore/mindspore-cpu-aarch64:latest
+```
+
+```bash
+pip install -U pytest
+pytest --version
+
+PYTHONTEST_DIR="/mindspore/tests/perf_test"
+PERF_RESULT_DIR="${CURRPATH}/"
+PERF_SUFFIX=".perf"
+
+for f in "${PYTHONTEST_DIR}"/test_*.py
+do
+    target_file="${PERF_RESULT_DIR}$(basename ${f} .py)${PERF_SUFFIX}"
+    pytest -s "${f}" > "${target_file}" 2>&1
+done
+
+ls -al /*.perf
+cat /*.perf
+```
