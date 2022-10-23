@@ -7,3 +7,5 @@
 * https://github.com/ageron/handson-ml2
 * https://github.com/ageron/handson-ml3
 
+
+With Docker : https://github.com/ageron/handson-ml3/tree/main/docker
