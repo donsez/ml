@@ -1,6 +1,7 @@
 # MindSpore
 
-MindSpore is a new open source deep learning training/inference framework that could be used for mobile, edge and cloud scenarios developed by Haiwei.
+MindSpore is a new open source deep learning training/inference framework that could be used for mobile, edge and cloud scenarios.
+The framework is developed and maintained by Huawei.
 
 https://github.com/mindspore-ai/mindspore/blob/master/README.md
 
